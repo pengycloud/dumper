@@ -32,3 +32,13 @@
 - **chat_id** and **token** need to be assigned first. Then run it as:
 
       ./dumper
+#### The way it works is that chromium based browsers encrypt and save passwords locally in a file called "Login Data" and to in order to decrypt the passwords a file called "Local State" is used. And Firefox uses logins.json and key4.db for the same puprose.
+#### So the tool will search for these files names and send them to the specified telegram bot user with the caption of the whole path of the file so that one can know which "login.json" file is related to which "key4.db" file via their path.
+
+ℹ️ Unrelated "key4.db","login.json","Local Data","Local State" files could be send along too since the tool searchs for any file with these names!
+
+#### The dump can be used as:
+- **Firefox**: Store the "login.json" with along with its "key4.db" in a directory and then run
+          `firefox -profile <dir>`
+          firefox will open up and opening passwords in there will show all the saved passwords.
+- **Chromium-based**: copy your own "Login Data" and "Local State" files for the browser specified in the caption(path of the file) to a safe directory and then replace your the "Login Data" and "Local State" with the dumped ones.‼️IF YOU DON'T SAVE YOUR OWN "Login Data" and "Local State" FILES FIRST, YOU COULD **LOSE** YOUR SAVED PASSWORDS‼️
